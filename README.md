@@ -476,5 +476,10 @@ var gobang = new Gobang();
 gobang.init()
 ```
 
-**[github地址](https://github.com/cd-dongzi/Gobang)**
-**[线上地址](https://cd-dongzi.github.io/Gobang/)**
+**[原版15x15棋盘github地址](https://github.com/cd-dongzi/Gobang)**
+**[原版15x15棋盘线上地址](https://cd-dongzi.github.io/Gobang/)**
+
+
+
+**[修改版12x12棋盘github地址](https://github.com/sunianovo/Gobang)**
+**[修改版12x12棋盘线上地址](https://sunianovo.github.io/Gobang/)**
