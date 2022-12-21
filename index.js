@@ -32,10 +32,10 @@ Gobang.prototype.init = function(opts) {
 Gobang.prototype.createCanvas = function(opts) {
 	var opts = opts || {};
 	if (opts.width && opts.width%30 !== 0) throw new RangeError(opts.width+'不是30的倍数');
-	this.col = (opts.width && opts.width/30) || 15; // 棋盘列
+	this.col = (opts.width && opts.width/30) || 12; // 棋盘列
 
 	var oCanvas = document.createElement('canvas');
-	oCanvas.width = oCanvas.height = opts.width || 450;
+	oCanvas.width = oCanvas.height = opts.width || 360;
 	this.canvas = oCanvas;
 	document.querySelector(opts.container || 'body').appendChild(this.canvas);
 	this.ctx = oCanvas.getContext('2d');
@@ -50,24 +50,24 @@ Gobang.prototype.boardInit = function(opts){
 Gobang.prototype.drawBoard = function(){
 	this.ctx.strokeStyle = "#bfbfbf";
 	for (var i = 0; i < this.col; i++) {
-		this.ctx.moveTo(15+ 30*i, 15);
-		this.ctx.lineTo(15+ 30*i, this.col*30-15);
+		this.ctx.moveTo(12+ 30*i, 12);
+		this.ctx.lineTo(12+ 30*i, this.col*30-12);
 		this.ctx.stroke();
-		this.ctx.moveTo(15, 15+ 30*i);
-		this.ctx.lineTo(this.col*30-15, 15+ 30*i);
+		this.ctx.moveTo(12, 12+ 30*i);
+		this.ctx.lineTo(this.col*30-12, 12+ 30*i);
 		this.ctx.stroke();
 	}
 }
 
 // 画棋子
 Gobang.prototype.drawChess = function(x, y, player){
-	var x = 15 + x * 30,
-		y = 15 + y * 30;
+	var x = 12 + x * 30,
+		y = 12 + y * 30;
 	this.ctx.beginPath();
-	this.ctx.arc(x, y, 13, 0, Math.PI*2);
+	this.ctx.arc(x, y, 10, 0, Math.PI*2);
 
 
-	var grd = this.ctx.createRadialGradient(x + 2, y - 2, 13 , x + 2, y - 2, 0);
+	var grd = this.ctx.createRadialGradient(x + 2, y - 2, 10 , x + 2, y - 2, 0);
 	if (player) { //我 == 黑棋 
 		grd.addColorStop(0, '#0a0a0a');
 		grd.addColorStop(1, '#636766');
@@ -103,7 +103,7 @@ Gobang.prototype.mouseMove = function(){
 Gobang.prototype.focusChess = function(x, y){
 	this.ctx.beginPath();
 	this.ctx.fillStyle = '#E74343';
-	this.ctx.arc(15 + x * 30, 15 + y * 30, 6, 0, Math.PI*2);
+	this.ctx.arc(12 + x * 30, 12 + y * 30, 6, 0, Math.PI*2);
 	this.ctx.fill();
 }
 
